@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbbs/pages/user.dart' as user;
 
 class Page extends StatefulWidget {
   const Page({
@@ -15,6 +16,12 @@ class Page extends StatefulWidget {
 }
 
 class _PageState extends State<Page> {
+  void _gotouser() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      return const user.Page(title: "goto user");
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -35,21 +42,24 @@ class _PageState extends State<Page> {
                   direction: Axis.horizontal,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const CircleAvatar(
-                      radius: 32,
-                      //backgroundColor: Colors.pink,
-                      //child: Text('xxxx'),
+                    InkWell(
+                      onTap: _gotouser,
+                      child: const CircleAvatar(radius: 32),
                     ),
                     const Padding(padding: EdgeInsets.all(8.0)),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const <Widget>[
-                          Text(
-                            "散仙",
-                            style: TextStyle(fontSize: 24, color: Colors.black),
+                        children: <Widget>[
+                          InkWell(
+                            onTap: _gotouser,
+                            child: const Text(
+                              "散仙",
+                              style:
+                                  TextStyle(fontSize: 24, color: Colors.black),
+                            ),
                           ),
-                          Text(
+                          const Text(
                             "2022-03-24 00:53",
                             style:
                                 TextStyle(fontSize: 16, color: Colors.black87),

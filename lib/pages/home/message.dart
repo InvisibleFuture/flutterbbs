@@ -13,7 +13,7 @@ class _PageState extends State<Page> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: const Text('message'),
+      child: const Text('message, 消息中心未登录默认是没有消息的, 也许可以有系统消息'),
     );
   }
 }
