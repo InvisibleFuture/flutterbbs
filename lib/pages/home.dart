@@ -12,14 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -37,37 +29,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      //  actions: [],
-      //  title: Text(widget.title),
-      //),
       body: _children[_selectedIndex],
-      //body: Center(
-      //  child: Column(
-      //    mainAxisAlignment: MainAxisAlignment.center,
-      //    children: <Widget>[
-      //      const Text('HELLO WORLD!'),
-      //      Text(
-      //        '$_counter',
-      //        style: Theme.of(context).textTheme.headline4,
-      //      ),
-      //    ],
-      //  ),
-      //),
-      //floatingActionButton: FloatingActionButton(
-      //  onPressed: _incrementCounter,
-      //  tooltip: 'Increment',
-      //  child: const Icon(Icons.add),
-      //),
-      //persistentFooterButtons: const <Widget>[
-      //  Text("data"),
-      //  Text("data"),
-      //  Text("data"),
-      //],
-      //drawer: Container(
-      //  color: Colors.amber,
-      //  child: const Text('Drawer'),
-      //),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),

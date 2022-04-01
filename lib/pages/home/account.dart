@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbbs/pages/user.dart' as user;
+import 'package:flutterbbs/pages/setting.dart' as setting;
 
 class Page extends StatefulWidget {
   const Page({Key? key, required this.title}) : super(key: key);
@@ -13,6 +14,12 @@ class _PageState extends State<Page> {
   void _gotouser() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
       return const user.Page(title: "goto user");
+    }));
+  }
+
+  void _gotosetting() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      return const setting.Page(title: "goto user");
     }));
   }
 
@@ -38,6 +45,7 @@ class _PageState extends State<Page> {
                 children: [
                   // 框架在最下层
                   Stack(
+                    alignment: Alignment.topRight,
                     children: [
                       Container(
                         height: 440,
@@ -45,7 +53,18 @@ class _PageState extends State<Page> {
                       Container(
                         color: Colors.pink,
                         height: 380,
-                      )
+                      ),
+                      InkWell(
+                        onTap: _gotosetting,
+                        child: const Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Icon(
+                            Icons.settings_suggest,
+                            size: 32,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   // 用户头像在上层
