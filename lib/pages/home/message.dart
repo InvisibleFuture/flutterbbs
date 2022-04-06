@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:flutterbbs/pages/setting.dart' as setting;
 
 class Page extends StatefulWidget {
   const Page({Key? key, required this.title}) : super(key: key);
@@ -12,8 +13,24 @@ class _PageState extends State<Page> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      child: const Text('message, 消息中心未登录默认是没有消息的, 也许可以有系统消息'),
+      color: Colors.amber,
+      child: Column(
+        children: const <Widget>[
+          Text('HOME>消息组件'),
+          Text('HOME>消息组件'),
+          //CupertinoButton(
+          //  child: const Text('HELLO WORLD 2333 哈哈哈 '),
+          //  color: Colors.pink,
+          //  onPressed: () {
+          //    //静态路由跳转，不给第二个页面传值
+          //    //Navigator.pushNamed(context, 'home').then((value) {});
+          //    //Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          //    //  return const setting.Page(title: "goto user");
+          //    //}));
+          //  },
+          //),
+        ],
+      ),
     );
   }
 }

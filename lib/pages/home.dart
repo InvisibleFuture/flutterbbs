@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbbs/pages/home/account.dart' as account;
-import 'package:flutterbbs/pages/home/message.dart' as message;
 import 'package:flutterbbs/pages/home/threadlist.dart' as threadlist;
+import 'package:flutterbbs/pages/home/message.dart' as message;
+import 'package:flutterbbs/pages/home/account.dart' as account;
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key, required this.title}) : super(key: key);
+class Page extends StatefulWidget {
+  const Page({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Page> createState() => _PageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
+class _PageState extends State<Page> with SingleTickerProviderStateMixin {
+  late TabController tabController;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(initialIndex: 0, length: 3, vsync: this);
   }
-
-  final List<Widget> _children = <Widget>[
-    const threadlist.Page(title: "233"),
-    const message.Page(title: "233"),
-    const account.Page(title: "233"),
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _children[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Message'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.accessibility_rounded), label: 'my'),
+      //appBar: AppBar(
+      //  title: Text(widget.title),
+      //),
+      body: TabBarView(
+        controller: tabController,
+        children: const [
+          threadlist.Page(title: 'xxx'),
+          message.Page(title: 'xxx'),
+          account.Page(title: 'xxx'),
         ],
-        currentIndex: _selectedIndex,
-        fixedColor: Colors.blue,
-        onTap: _onItemTapped,
       ),
-      //backgroundColor: Colors.white,
+      bottomNavigationBar: TabBar(
+        tabs: const [
+          Tab(text: "列表", icon: Icon(Icons.list)),
+          Tab(text: "信息", icon: Icon(Icons.message)),
+          Tab(text: "我的", icon: Icon(Icons.card_membership)),
+        ],
+        controller: tabController,
+        indicatorWeight: 0.1,
+        labelColor: Colors.black87,
+      ),
     );
   }
 }

@@ -29,7 +29,7 @@ class _PageState extends State<Page> {
         slivers: <Widget>[
           const SliverAppBar(
             automaticallyImplyLeading: true,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.white12,
             foregroundColor: Colors.black26,
             toolbarHeight: 80,
           ),
@@ -37,7 +37,6 @@ class _PageState extends State<Page> {
             delegate: SliverChildListDelegate(<Widget>[
               Container(
                 padding: const EdgeInsets.fromLTRB(32, 120, 32, 12),
-                color: Colors.white,
                 child: Flex(
                   direction: Axis.horizontal,
                   mainAxisSize: MainAxisSize.max,
@@ -74,22 +73,37 @@ class _PageState extends State<Page> {
                   ],
                 ),
               ),
+              // 主要段落文字示例
               Container(
                 padding: const EdgeInsets.fromLTRB(32, 12, 32, 12),
-                color: Colors.white,
-                child: const Text(
-                  '人与人的悲欢并不相通',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 32.0,
-                    fontWeight: FontWeight.w500,
-                  ),
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      alignment: Alignment.topLeft,
+                      child: const Text(
+                        '人与人的悲欢并不相通',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 32.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 300,
+                      margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      decoration: const BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(48),
-                color: Colors.white,
                 child: const Text(
                   '0人关注 0人回应',
                   style: TextStyle(
@@ -106,13 +120,54 @@ class _PageState extends State<Page> {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 return Container(
-                  padding: const EdgeInsets.all(32),
+                  padding: const EdgeInsets.fromLTRB(32, 12, 32, 12),
                   alignment: Alignment.center,
-                  color: Colors.white,
-                  child: Text('$index'),
+                  //color: Colors.white,
+                  child: Flex(
+                    direction: Axis.horizontal,
+                    children: [
+                      const CircleAvatar(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Wrap(
+                            alignment: WrapAlignment.start,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.fromLTRB(16, 0, 8, 0),
+                                child: const Text('散仙'),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(16, 10, 0, 0),
+                            padding: const EdgeInsets.all(16),
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12)),
+                            ),
+                            child: Text('这是一条评论, 它们合并时间 $index'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 );
               },
               childCount: 2,
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              <Widget>[
+                Container(
+                  margin: const EdgeInsets.all(32),
+                  alignment: Alignment.center,
+                  child: const Text('没有更多了..'),
+                ),
+                // 自动向下翻页
+              ],
             ),
           ),
         ],

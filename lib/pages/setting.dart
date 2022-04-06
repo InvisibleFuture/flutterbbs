@@ -28,7 +28,7 @@ class _PageState extends State<Page> {
       ),
       body: Container(
         color: Colors.amber,
-        child: const Text('body'),
+        child: const Text('bxxxxody 啊啊'),
       ),
     );
   }
