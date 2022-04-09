@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbbs/pages/thread.dart' as thread;
+import 'package:flutterbbs/http.dart' as http;
 
 class Page extends StatefulWidget {
   const Page({Key? key, required this.title}) : super(key: key);
@@ -21,17 +22,28 @@ class _PageState extends State<Page> {
   //  });
   //}
 
+  final List _list = [];
+
+  @override
+  void initState() {
+    super.initState();
+    http.HTTP.getlist('/idea').then((value) {
+      setState(() {
+        _list.addAll(value);
+      });
+    });
+  }
+
   void _gotothread() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
       return const thread.Page(title: "title");
     }));
-    //Navigator.pushNamed(context, '/thread').then((value) {});
   }
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      itemCount: 32,
+      itemCount: _list.length,
       itemBuilder: ((context, index) {
         return InkWell(
           onTap: _gotothread,
@@ -55,25 +67,19 @@ class _PageState extends State<Page> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  '发布你的第一条动态 $index',
+                  '${_list[index]['name']}',
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
                 ),
-                const Text(
-                  '动态发布后, 会自动推送到社区讨论~',
-                  style: TextStyle(
+                Text(
+                  '${_list[index]['data']}',
+                  style: const TextStyle(
                     color: Colors.black87,
                     fontSize: 16,
                   ),
-                ),
-                const Text(
-                  '被回复会收到通知~',
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 16,
-                  ),
+                  maxLines: 3,
                 ),
               ],
             ),

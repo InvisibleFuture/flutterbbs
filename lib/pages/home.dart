@@ -23,9 +23,6 @@ class _PageState extends State<Page> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(
-      //  title: Text(widget.title),
-      //),
       body: TabBarView(
         controller: tabController,
         children: const [

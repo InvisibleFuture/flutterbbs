@@ -5,11 +5,14 @@ class Page extends StatefulWidget {
   const Page({
     Key? key,
     required this.title,
-    //required this.data,
+    this.data = '',
+    this.createdAt = '2022-03-24 00:53',
   }) : super(key: key);
 
   final String title;
-  //final String data;
+  final String data;
+  final String createdAt;
+  //final String updatedAt;
 
   @override
   State<Page> createState() => _PageState();
@@ -122,7 +125,6 @@ class _PageState extends State<Page> {
                 return Container(
                   padding: const EdgeInsets.fromLTRB(32, 12, 32, 12),
                   alignment: Alignment.center,
-                  //color: Colors.white,
                   child: Flex(
                     direction: Axis.horizontal,
                     children: [
