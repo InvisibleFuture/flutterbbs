@@ -27,7 +27,7 @@ class _PageState extends State<Page> {
   @override
   void initState() {
     super.initState();
-    http.HTTP.getlist('/idea').then((value) {
+    http.HTTP.getlist('/blog').then((value) {
       setState(() {
         _list.addAll(value);
       });

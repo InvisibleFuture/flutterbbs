@@ -7,23 +7,23 @@ var port = 443;
 
 class HTTP {
   static Future<List> getlist(String path) async {
-    var request = await client.getUrl(Uri.parse(host + path));
-    var response = await request.close();
+    var request      = await client.getUrl(Uri.parse(host + path));
+    var response     = await request.close();
     var responseBody = await response.transform(utf8.decoder).join();
 
     const json = JsonCodec();
-    List data = json.decode(responseBody);
+    List data  = json.decode(responseBody)['list'];
     return data;
   }
 
   static Future<HttpClientResponse> post(String path) async {
-    var request = await client.get(host, port, path);
+    var request  = await client.get(host, port, path);
     var response = await request.close();
     return response;
   }
 
   static Future<HttpClientResponse> patch(String path) async {
-    var request = await client.get(host, port, path);
+    var request  = await client.get(host, port, path);
     var response = await request.close();
 
     switch (response.statusCode) {
@@ -35,7 +35,7 @@ class HTTP {
   }
 
   static Future<HttpClientResponse> delete(String path) async {
-    var request = await client.get(host, port, path);
+    var request  = await client.get(host, port, path);
     var response = await request.close();
     return response;
   }
