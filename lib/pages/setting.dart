@@ -26,10 +26,42 @@ class _PageState extends State<Page> {
         //  statusBarColor: Colors.white, //状态栏颜色
         //),
       ),
-      body: Container(
-        color: Colors.amber,
-        child: const Text('bxxxxody 啊啊'),
+      body: ListView(
+        children: [
+          Container(
+            color: Colors.amber,
+            child: const Text('账号与安全'),
+          ),
+          Container(
+            color: Colors.amber,
+            child: const Text('关于我们'),
+          ),
+          Container(
+            color: Colors.amber,
+            child: const Text('版本信息'),
+          ),
+          Container(
+            color: Colors.amber,
+            child: const Text('用户协议'),
+          ),
+          Container(
+            padding: const EdgeInsets.all(20.0),
+            child: TextButton(
+              onPressed: () {},
+              child: const Text('退出登录'),
+            ),
+          ),
+        ],
       ),
+      //body: ListView.builder(
+      //  itemCount: 3,
+      //  itemBuilder: (BuildContext context, int index) {
+      //    return Container(
+      //      color: Colors.amber,
+      //      child: const Text('bxxxxody 啊啊'),
+      //    );
+      //  }
+      //)
     );
   }
 }
