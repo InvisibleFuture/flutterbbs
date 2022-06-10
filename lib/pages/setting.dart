@@ -20,11 +20,11 @@ class _PageState extends State<Page> {
         elevation: 0,
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.white, //系统导航栏颜色
-          systemNavigationBarDividerColor: Colors.white, //系统导航栏分隔线颜色
-          statusBarColor: Colors.white, //状态栏颜色
-        ),
+        //systemOverlayStyle: const SystemUiOverlayStyle(
+        //  systemNavigationBarColor: Colors.white, //系统导航栏颜色
+        //  systemNavigationBarDividerColor: Colors.white, //系统导航栏分隔线颜色
+        //  statusBarColor: Colors.white, //状态栏颜色
+        //),
       ),
       body: Container(
         color: Colors.amber,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbbs/pages/user.dart' as user;
 import 'package:flutterbbs/pages/setting.dart' as setting;
+import 'package:flutterbbs/pages/shoppingcart.dart' as shoppingcart;
 import 'package:extended_image/extended_image.dart';
 
 class Page extends StatefulWidget {
@@ -64,7 +65,7 @@ class _PageState extends State<Page> {
                         InkWell(
                           onTap: _gotosetting,
                           child: const Padding(
-                            padding: EdgeInsets.all(20),
+                            padding: EdgeInsets.only(right: 20, top: 40),
                             child: Icon(
                               Icons.settings_suggest,
                               size: 32,
@@ -106,6 +107,72 @@ class _PageState extends State<Page> {
                 Container(
                   alignment: Alignment.center,
                   child: const Text("中国 * 2条目", style: TextStyle(fontSize: 16)),
+                ),
+                /// 我的订单列表
+                Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 40.0, bottom: 40.0),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                    boxShadow: <BoxShadow>[
+                      BoxShadow(
+                        color: Colors.black12,
+                        offset: Offset(1.0, 1.0), //阴影偏移
+                        blurRadius: 10, //阴影模糊
+                        spreadRadius: -10.0, //阴影扩散
+                      ),
+                    ],
+                  ),
+                  child: Flex(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    direction: Axis.horizontal,
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                              return const shoppingcart.Page(title: "shopping cart");
+                            }));
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [Icon(Icons.local_grocery_store), Text('购物车')],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [Icon(Icons.payment), Text('待付款')],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [Icon(Icons.gif_box), Text('待发货')],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [Icon(Icons.local_shipping), Text('待收货')],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [Icon(Icons.home_repair_service), Text('退款/售后')],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(32, 120, 32, 12),

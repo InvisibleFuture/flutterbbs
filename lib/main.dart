@@ -1,8 +1,22 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutterbbs/pages/home.dart' as home;
+import 'package:flutter/services.dart';
+import 'package:flutterbbs/pages/home/index.dart' as home;
 //import 'package:flutterbbs/pages/thread.dart' as thread;
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const MyApp());
+  if(Platform.isAndroid){
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarContrastEnforced: false
+    ));
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

@@ -66,21 +66,13 @@ class _PageState extends State<Page> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  '${_list[index]['name']}',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-                Text(
-                  '${_list[index]['data']}',
-                  style: const TextStyle(
-                    color: Colors.black87,
-                    fontSize: 16,
-                  ),
-                  maxLines: 3,
-                ),
+                Text('${_list[index]['name']}', style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ), maxLines: 1 ),
+                Text('${_list[index]['data']}', style: const TextStyle(
+                  color: Colors.black87, fontSize: 16,
+                ), maxLines: 3 ),
               ],
             ),
           ),
