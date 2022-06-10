@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutterbbs/pages/setting/about.dart' as about;
+import 'package:flutterbbs/pages/setting/version.dart' as version;
+//import 'package:flutter/services.dart';
 
 class Page extends StatefulWidget {
   const Page({Key? key, required this.title}) : super(key: key);
@@ -18,7 +20,7 @@ class _PageState extends State<Page> {
         centerTitle: true,
         title: const Text('Setting', style: TextStyle(color: Colors.black)),
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white12,
         iconTheme: const IconThemeData(color: Colors.black),
         //systemOverlayStyle: const SystemUiOverlayStyle(
         //  systemNavigationBarColor: Colors.white, //系统导航栏颜色
@@ -28,21 +30,41 @@ class _PageState extends State<Page> {
       ),
       body: ListView(
         children: [
-          Container(
-            color: Colors.amber,
-            child: const Text('账号与安全'),
+          ListTile(
+            trailing: const Icon(Icons.chevron_right),
+            leading: const Icon(Icons.account_circle),
+            title: const Text('账号与安全'),
+            onTap: () {
+              //Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              //  return const about.Page();
+              //}));
+            },
           ),
-          Container(
-            color: Colors.amber,
-            child: const Text('关于我们'),
+          ListTile(
+            trailing: const Icon(Icons.chevron_right),
+            leading: const Icon(Icons.redeem),
+            title: const Text('关于我们'),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const about.Page();
+              }));
+            },
           ),
-          Container(
-            color: Colors.amber,
-            child: const Text('版本信息'),
+          ListTile(
+            trailing: const Icon(Icons.chevron_right),
+            leading: const Icon(Icons.assignment),
+            title: const Text('用户协议'),
+            onTap: () {},
           ),
-          Container(
-            color: Colors.amber,
-            child: const Text('用户协议'),
+          ListTile(
+            trailing: const Icon(Icons.chevron_right),
+            leading: const Icon(Icons.verified),
+            title: const Text('版本信息'),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const version.Page();
+              }));
+            },
           ),
           Container(
             padding: const EdgeInsets.all(20.0),
