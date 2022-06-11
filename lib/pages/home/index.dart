@@ -33,9 +33,9 @@ class _PageState extends State<Page> with SingleTickerProviderStateMixin {
       ),
       bottomNavigationBar: TabBar(
         tabs: const [
-          Tab(text: "列表", icon: Icon(Icons.list)),
-          Tab(text: "信息", icon: Icon(Icons.message)),
-          Tab(text: "我的", icon: Icon(Icons.card_membership)),
+          Tab(text: "社区", icon: Icon(Icons.comment_bank)),
+          Tab(text: "商城", icon: Icon(Icons.local_mall)),
+          Tab(text: "我的", icon: Icon(Icons.account_box)),
         ],
         controller: tabController,
         indicatorWeight: 0.1,
