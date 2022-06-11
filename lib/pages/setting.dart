@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbbs/pages/setting/about.dart' as about;
 import 'package:flutterbbs/pages/setting/version.dart' as version;
+import 'package:flutterbbs/pages/setting/protocol.dart' as protocol;
 //import 'package:flutter/services.dart';
 
 class Page extends StatefulWidget {
@@ -54,7 +55,11 @@ class _PageState extends State<Page> {
             trailing: const Icon(Icons.chevron_right),
             leading: const Icon(Icons.assignment),
             title: const Text('用户协议'),
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return const protocol.Page();
+              }));
+            },
           ),
           ListTile(
             trailing: const Icon(Icons.chevron_right),

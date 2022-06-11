@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbbs/pages/user.dart' as user;
 import 'package:flutterbbs/pages/setting.dart' as setting;
 import 'package:flutterbbs/pages/shoppingcart.dart' as shoppingcart;
+import 'package:flutterbbs/pages/order.dart' as order;
 import 'package:extended_image/extended_image.dart';
 
 class Page extends StatefulWidget {
@@ -134,7 +135,7 @@ class _PageState extends State<Page> {
                         child: InkWell(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                              return const shoppingcart.Page(title: "shopping cart");
+                              return const shoppingcart.Page(title: "购物车");
                             }));
                           },
                           child: Column(
@@ -145,30 +146,58 @@ class _PageState extends State<Page> {
                       ),
                       Expanded(
                         flex: 1,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const [Icon(Icons.payment), Text('待付款')],
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                              return const order.Page(title: "待付款");
+                            }));
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [Icon(Icons.payment), Text('待付款')],
+                          ),
                         ),
                       ),
                       Expanded(
                         flex: 1,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const [Icon(Icons.gif_box), Text('待发货')],
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                              return const order.Page(title: "待发货");
+                            }));
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [Icon(Icons.gif_box), Text('待发货')],
+                          ),
                         ),
                       ),
                       Expanded(
                         flex: 1,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const [Icon(Icons.local_shipping), Text('待收货')],
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                              return const order.Page(title: "待收货");
+                            }));
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [Icon(Icons.local_shipping), Text('待收货')],
+                          ),
                         ),
                       ),
                       Expanded(
                         flex: 1,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: const [Icon(Icons.home_repair_service), Text('退款/售后')],
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                              return const order.Page(title: "退款/售后");
+                            }));
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [Icon(Icons.home_repair_service), Text('退款/售后')],
+                          ),
                         ),
                       ),
                     ],
