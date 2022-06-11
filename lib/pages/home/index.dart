@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbbs/pages/home/threadlist.dart' as threadlist;
-import 'package:flutterbbs/pages/home/message.dart' as message;
+import 'package:flutterbbs/pages/home/market.dart' as market;
 import 'package:flutterbbs/pages/home/account.dart' as account;
 
 class Page extends StatefulWidget {
@@ -27,7 +27,7 @@ class _PageState extends State<Page> with SingleTickerProviderStateMixin {
         controller: tabController,
         children: const [
           threadlist.Page(title: 'xxx'),
-          message.Page(title: 'xxx'),
+          market.Page(title: 'xxx'),
           account.Page(title: 'xxx'),
         ],
       ),
